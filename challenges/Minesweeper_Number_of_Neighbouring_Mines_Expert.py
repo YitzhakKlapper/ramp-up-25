@@ -48,7 +48,8 @@ def main():
             lose = True
         else:
             playerBoard[row][col] = keyBoard[row][col]
-            if np.all(playerBoard >= 0):
+            if np.all(playerBoard != '_'):
+                print("You have revealed all non-mine cells.")
                 print("Congratulations! You've cleared the grid.")
                 win = True
         print(playerBoard)
