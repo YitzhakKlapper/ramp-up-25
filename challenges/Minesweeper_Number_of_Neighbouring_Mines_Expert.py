@@ -31,7 +31,7 @@ def makeGrid():
     diffuculty = float(input("Enter the difficulty level (0 to 1): "))
     a = int(input("Enter the number of columns: "))
     b = int(input("Enter the number of rows: "))
-    return (np.random.choice([0, 1], size=(a, b), p=[1 - diffuculty,diffuculty]),np.zeros((a,b)) -1)
+    return (np.random.choice([0, 1], size=(a, b), p=[1 - diffuculty,diffuculty]),np.full((a, b), '_', dtype=str))
 def main():
     print("Welcome to the Minesweeper game!")
     board,playerBoard = makeGrid()
