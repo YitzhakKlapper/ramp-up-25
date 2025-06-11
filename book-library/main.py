@@ -35,7 +35,7 @@ def getById(id: int):
 @app.get("/review")
 def get_review():
     global d
-    return {id: book.dict() for id, book in d.items()}  # Proper serialization
+    return {id: book.dict() for id, book in d.items()}
 
 @app.delete("/review/{id}")
 def deleteById(id: int):
@@ -45,7 +45,4 @@ def deleteById(id: int):
     del d[id]
     return {}
 
-@app.get("/")
-def read_root():
-    return {"message": "Welcome to the Book Review API!"}
-
+# Removed root.
