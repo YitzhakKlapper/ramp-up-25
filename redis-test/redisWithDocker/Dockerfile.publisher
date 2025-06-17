@@ -1,0 +1,9 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY publisher.py .
+
+RUN pip install fastapi redis uvicorn
+
+CMD ["uvicorn", "publisher:app", "--host", "0.0.0.0", "--port", "8000"]

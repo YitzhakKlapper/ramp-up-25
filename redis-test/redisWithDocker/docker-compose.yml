@@ -1,0 +1,25 @@
+services:
+  redis:
+    image: redis:7.0
+    ports:
+      - "6379:6379"
+
+  subscriber:
+    build:
+      context: .
+      dockerfile: Dockerfile.subscriber
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+
+  publisher:
+    build:
+      context: .
+      dockerfile: Dockerfile.publisher
+    depends_on:
+      - redis
+    environment:
+      - REDIS_HOST=redis
+    ports:
+      - "8000:8000"
